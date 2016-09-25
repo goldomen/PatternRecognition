@@ -15,8 +15,17 @@ S2inv = inv(S2);
 %computing the decision boundary
 syms x
 syms y
+syms X
 X = [x;y];
-g1=log(1/(2*pi*sqrt(det1))*exp((-1)/2*(X-m1)'/S1*(X-m1)))+log(0.3);
-g2=log(1/(2*pi*sqrt(det2))*exp((-1)/2*(X-m2)'/S2*(x-m2)))+log(0.7);
-solve(g1-g2==0, 'Real', true)
-
+g1=log(1/(2*pi*sqrt(det1))) + (-1)/2*(X-m1)'/S1*(X-m1)+log(0.3);
+g2=log(1/(2*pi*sqrt(det2))) + (-1)/2*(X-m2)'/S2*(x-m2)+log(0.7);
+eqn = g1 - g2 == 0;
+assume(x, 'real');
+assume(y, 'real');
+res = solve(eqn, x, y);
+disp(res.x);
+disp(res.y);
+figure;
+plot(res.x, res.y);
+figure;
+scatter(res.x, res.y);
