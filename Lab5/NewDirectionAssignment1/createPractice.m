@@ -10,8 +10,8 @@ k=1;
 
 for i =1:count1
     if count1~=0
-    vectmin=mean1-1;
-    vectmax=mean1+1;
+    vectmin=mean1-0.5;
+    vectmax=mean1+0.5;
     
     x(k,1)=(vectmin(1)+rand*(vectmax(1)-vectmin(1)));
     x(k,2)=(vectmin(2)+rand*(vectmax(2)-vectmin(2)));
@@ -21,8 +21,8 @@ end
 
 for j=1:1:count2
     if count2~=0
-    vectmin=mean2-1;
-    vectmax=mean2+1;
+    vectmin=mean2-2;
+    vectmax=mean2+2;
     
     x(k,1)=(vectmin(1)+rand*(vectmax(1)-vectmin(1)));
     x(k,2)=(vectmin(2)+rand*(vectmax(2)-vectmin(2)));

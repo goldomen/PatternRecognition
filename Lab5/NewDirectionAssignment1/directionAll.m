@@ -2,9 +2,8 @@ function [dir]=directionAll(P,w,data,training,learn)
 
 sD=size(data);
 dir=P;
-K=sD(1);
-
-for i=1:K
+%[minV,index] = findWinner(P,data);
+for i=1:sD(1)
     
     if training(i)==w
         direct=1;
@@ -13,5 +12,6 @@ for i=1:K
     end
     
     dir=dir+learn*direct*(data(i,:)-P);
+end
     
 end
